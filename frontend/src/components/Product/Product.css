@@ -58,6 +58,17 @@
     border-radius: 50px;
     background-color: white;
 }
+.productDetails-counter{
+    /* position: absolute;
+    bottom: 15px;
+    right: 15px; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 50px;
+    background-color: white;
+}
 .product-counter img{
     width: 30px;
 }

@@ -6,7 +6,7 @@ import { StoreContext } from '../../context/StoreContext';
 
 const Navbar = ({setShowLogin}) => {
 
-  const [menu,setMenu] = useState("Home");
+  const [menu,setMenu] = useState("");
 
   const {getTotalFavAmount,token,setToken} = useContext(StoreContext);
 
@@ -23,14 +23,14 @@ const Navbar = ({setShowLogin}) => {
       <Link to='/'><img src={assets.logo} alt="" className="logo" style={{marginLeft:25}} /></Link>
       <ul className="navbar-menu">
         <Link to='/' onClick={()=>setMenu("Home")} className={menu==="Home"?"active":""}>Home</Link>
-        <a href='#explore-menu' onClick={()=>setMenu("Menu")} className={menu==="Menu"?"active":""}>Products</a>
-        <a href='#app-download' onClick={()=>setMenu("Mobile-app")} className={menu==="Mobile-app"?"active":""}>Mobile-app</a>
-        <a href='#footer' onClick={()=>setMenu("Contact Us")} className={menu==="Contact Us"?"active":""}>Contact Us</a>
+        <Link to='/product' onClick={()=>setMenu("Menu")} className={menu==="Menu"?"active":""}>Product</Link>
+        {/* <a href='#app-download' onClick={()=>setMenu("Mobile-app")} className={menu==="Mobile-app"?"active":""}>Mobile-app</a> */}
+        <Link to='/contact' onClick={()=>setMenu("Contact Us")} className={menu==="Contact Us"?"active":""}>Contact Us</Link>
       </ul>
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />
         <div className="navbar-search-icon">
-            <Link to='/fav'><img src={assets.fav_icon} alt="" /></Link>
+            <Link  to='/fav'><img src={assets.fav_icon} alt="" /></Link>
             <div className={getTotalFavAmount()===0?"":"dot"}></div>
         </div>
         {!token?<button onClick={()=>setShowLogin(true)}>Sign In</button>
